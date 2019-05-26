@@ -10,6 +10,7 @@ import com.mnzit.crm.entity.master.FollowUpStatus;
 import com.mnzit.crm.repository.FollowUpStatusRepository;
 import com.mnzit.crm.service.FollowUpStatusService;
 import java.util.List;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +24,13 @@ public class FollowUpStatusServiceImpl implements FollowUpStatusService {
     @Autowired
     private FollowUpStatusRepository repository;
 
+    @Autowired
+    private ModelMapper mapper;
+
     @Override
     public void save(FollowUpStatusDTO model) {
-        FollowUpStatus followUpStatus = new FollowUpStatus();
-        followUpStatus.setName(model.getName());
-        followUpStatus.setColor(model.getColor());
+        FollowUpStatus followUpStatus = mapper.map(model, FollowUpStatus.class);
         if (model.getId() > 0) {
-            followUpStatus.setId(model.getId());
             repository.update(followUpStatus);
         } else {
             repository.insert(followUpStatus);

@@ -16,8 +16,8 @@ public class FollowUp {
 
     private int id;
     private String message;
-    private Enquiry enquiryId;
-    private FollowUpStatus followUpStatusId;
+    private Enquiry enquiry;
+    private FollowUpStatus followUpStatus;
     private Date createdDate;
     private boolean deleted;
     private Date deletedDate;
@@ -29,11 +29,11 @@ public class FollowUp {
         this.id = id;
     }
 
-    public FollowUp(int id, String message, Enquiry enquiryId, FollowUpStatus followUpStatusId) {
+    public FollowUp(int id, String message, Enquiry enquiry, FollowUpStatus followUpStatus) {
         this.id = id;
         this.message = message;
-        this.enquiryId = enquiryId;
-        this.followUpStatusId = followUpStatusId;
+        this.enquiry = enquiry;
+        this.followUpStatus = followUpStatus;
     }
 
     public int getId() {
@@ -52,20 +52,20 @@ public class FollowUp {
         this.message = message;
     }
 
-    public Enquiry getEnquiryId() {
-        return enquiryId;
+    public Enquiry getEnquiry() {
+        return enquiry;
     }
 
-    public void setEnquiryId(Enquiry enquiryId) {
-        this.enquiryId = enquiryId;
+    public void setEnquiry(Enquiry enquiry) {
+        this.enquiry = enquiry;
     }
 
-    public FollowUpStatus getFollowUpStatusId() {
-        return followUpStatusId;
+    public FollowUpStatus getFollowUpStatus() {
+        return followUpStatus;
     }
 
-    public void setFollowUpStatusId(FollowUpStatus followUpStatusId) {
-        this.followUpStatusId = followUpStatusId;
+    public void setFollowUpStatus(FollowUpStatus followUpStatus) {
+        this.followUpStatus = followUpStatus;
     }
 
     public Date getCreatedDate() {
