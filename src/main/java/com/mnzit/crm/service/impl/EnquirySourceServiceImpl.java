@@ -10,6 +10,7 @@ import com.mnzit.crm.entity.master.EnquirySource;
 import com.mnzit.crm.repository.EnquirySourceRepository;
 import com.mnzit.crm.service.EnquirySourceService;
 import java.util.List;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,14 +24,12 @@ public class EnquirySourceServiceImpl implements EnquirySourceService {
     @Autowired
     private EnquirySourceRepository repository;
 
+    private ModelMapper mapper;
+
     @Override
     public void save(EnquirySourceDTO model) {
-        EnquirySource enquirySource = new EnquirySource();
-        enquirySource.setName(model.getName());
-        enquirySource.setColor(model.getColor());
+        EnquirySource enquirySource =  mapper.map(model, EnquirySource.class);
         if (model.getId() > 0) {
-            System.out.println("Update Triggered");
-            enquirySource.setId(model.getId());
             repository.update(enquirySource);
         } else {
             repository.insert(enquirySource);

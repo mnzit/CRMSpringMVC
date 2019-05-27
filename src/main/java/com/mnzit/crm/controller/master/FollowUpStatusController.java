@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 /**
  *
  * @author Mnzit
@@ -36,6 +37,7 @@ public class FollowUpStatusController extends CRUDController<FollowUpStatusDTO> 
         model.addAttribute("statuses", service.findAll());
         return "master/followupstatus/index";
     }
+
 
     @GetMapping(value = "/getJson")
     @ResponseBody

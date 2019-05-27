@@ -6,13 +6,12 @@
 package com.mnzit.crm.service.impl;
 
 import com.mnzit.crm.dto.FollowUpDTO;
-import com.mnzit.crm.entity.Enquiry;
 import com.mnzit.crm.entity.FollowUp;
-import com.mnzit.crm.entity.master.FollowUpStatus;
 import com.mnzit.crm.repository.EnquiryRepository;
 import com.mnzit.crm.repository.FollowUpRepository;
 import com.mnzit.crm.service.FollowUpService;
 import java.util.List;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,16 +28,16 @@ public class FollowUpServiceImpl implements FollowUpService {
     @Autowired
     private EnquiryRepository enquiryRepository;
 
+
+    @Autowired
+    private ModelMapper mapper;
+
     @Override
     public void save(FollowUpDTO model) {
-        FollowUp followUp = new FollowUp();
-        followUp.setMessage(model.getMessage());
-        followUp.setEnquiryId(new Enquiry(model.getEnquiryId()));
-        followUp.setFollowUpStatus(new FollowUpStatus(model.getFollowUpStatusId()));
+        FollowUp followUp = mapper.map(model, FollowUp.class);
         if (model.getId() == 0) {
             repository.insert(followUp);
         } else {
-            followUp.setId(model.getId());
             repository.update(followUp);
         }
     }

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 /**
  *
  * @author Mnzit
@@ -101,5 +102,4 @@ public class EnquiryController extends CRUDController<EnquiryDTO> {
     public String edit(int id, Model model) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

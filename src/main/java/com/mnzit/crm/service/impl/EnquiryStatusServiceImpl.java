@@ -10,6 +10,7 @@ import com.mnzit.crm.entity.master.EnquiryStatus;
 import com.mnzit.crm.repository.EnquiryStatusRepository;
 import com.mnzit.crm.service.EnquiryStatusService;
 import java.util.List;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +24,13 @@ public class EnquiryStatusServiceImpl implements EnquiryStatusService {
     @Autowired
     private EnquiryStatusRepository repository;
 
+    @Autowired
+    private ModelMapper mapper;
+
     @Override
     public void save(EnquiryStatusDTO model) {
-        EnquiryStatus enquiryStatus = new EnquiryStatus();
-        enquiryStatus.setName(model.getName());
-        enquiryStatus.setColor(model.getColor());
+        EnquiryStatus enquiryStatus = mapper.map(model, EnquiryStatus.class);
         if (model.getId() > 0) {
-            enquiryStatus.setId(model.getId());
             repository.update(enquiryStatus);
         } else {
             repository.insert(enquiryStatus);

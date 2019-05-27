@@ -2,6 +2,7 @@
 <div class="jumbotron">
     <h1 class="display-4 text-center">ENQUIRIES</h1>
 </div>
+
 <button class="btn btn-info float-right mb-3 btn-sm" id="add-enquiry-btn"><i class="fa fa-plus"></i></button>
 <div class="content-loader"></div>
 <%@include file="enquiry-modal.jsp" %>
@@ -84,4 +85,3 @@
         });
     });
 </script>
-<%@include file="../../../shared/footer.jsp" %>

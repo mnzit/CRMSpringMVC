@@ -30,7 +30,9 @@ public class FollowUpRepositoryImpl implements FollowUpRepository {
     @Override
     public void insert(FollowUp model) {
         String sql = "INSERT INTO tbl_follow_ups (message,enquiry_id,status_id) VALUES (?,?,?)";
-        template.update(sql, new Object[]{model.getMessage(), model.getEnquiryId().getId(), model.getFollowUpStatus().getId()});
+        template.update(sql, new Object[]{model.getMessage(), model.getEnquiry().getId(), model.getFollowUpStatus().getId()});
+        template.update(sql, new Object[]{model.getMessage(), model.getEnquiry().getId(), model.getFollowUpStatus().getId()});
+
     }
 
     @Override
