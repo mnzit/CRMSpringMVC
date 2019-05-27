@@ -67,7 +67,6 @@ public class EnquiryRepositoryImpl implements EnquiryRepository {
                     enquiry.setEnquiryStatus(new EnquiryStatus(rs.getInt("enquiry_status_id"), rs.getString("status_name"), rs.getString("status_color")));
                     enquiry.setReferredBy(rs.getString("referred_by"));
                     enquiry.setFollowUp(rs.getInt("follow_up"));
-                    enquiry.setVisited(rs.getBoolean("is_visited"));
                     return enquiry;
                 }
             });
@@ -94,6 +93,7 @@ public class EnquiryRepositoryImpl implements EnquiryRepository {
                 enquiry.setEnquiryStatus(new EnquiryStatus(rs.getInt("id"), rs.getString("status_name"), rs.getString("status_color")));
                 enquiry.setReferredBy(rs.getString("referred_by"));
                 enquiry.setFollowUp(rs.getInt("follow_up"));
+                enquiry.setVisited(rs.getBoolean("is_visited"));
                 return enquiry;
             }
         });
