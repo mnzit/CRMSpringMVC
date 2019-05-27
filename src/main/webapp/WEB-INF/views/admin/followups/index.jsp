@@ -19,7 +19,7 @@
             <tr>
                 <td>${followup.id}</td>
                 <td>${followup.message}</td>
-                <td style="background:${followup.followUpStatusId.color};color:white;">${followup.followUpStatusId.name}</td>        
+                <td style="background:${followup.followUpStatus.color};color:white;">${followup.followUpStatus.name}</td>        
                 <td>${followup.createdDate}</td>
                 <td>
                     <a class="btn btn-danger btn-sm" href="${SITE_URL}/admin/enquiries/${enquiryId}/followups/delete/${followup.id}"><i class="fa fa-trash"></i></a>
