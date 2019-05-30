@@ -81,7 +81,7 @@
 
     $('#delete-btn').on('click', function () {
         var $id = $(this).attr('data-id');
-        $.get('${SITE_URL}/admin/enquiries/delete/' + $id, (data) => {
+        $.get('${SITE_URL}/admin/enquiries/delete/' + $id, () => {
             $('#confirm-modal').modal('hide');
             loader();
             toastr.info('Deleted Successfully');
@@ -90,7 +90,7 @@
 
     $('.visited-btn').on('click', function () {
         var $id = $(this).attr('data-id');
-        $.get('${SITE_URL}/admin/enquiries/hasvisited/' + $id, (data) => {
+        $.get('${SITE_URL}/admin/enquiries/hasvisited/' + $id, () => {
             loader();
         });
     });
@@ -105,10 +105,10 @@
             $dialog.modal();
         });
     });
-    
-        $('.followup-delete-btn').on('click', function () {
+
+    $('.followup-delete-btn').on('click', function () {
         var $id = $(this).attr('data-id');
-        $.get('${SITE_URL}/admin/enquiries/delete/' + $id, (data) => {
+        $.get('${SITE_URL}/admin/enquiries/delete/' + $id, () => {
             $('#confirm-modal').modal('hide');
             loader();
             toastr.info('Deleted Successfully');

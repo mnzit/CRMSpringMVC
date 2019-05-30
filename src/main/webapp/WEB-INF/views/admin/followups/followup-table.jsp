@@ -26,15 +26,19 @@
 </table<!--table-->
 </div>
 <script>
+    function followUpLoader($enquiryid) {
+        let $dialog = $('#followup-modal');
+        $dialog.find('#followup-content').html("<div class='text-center'><div class='spinner-border'><span class='sr-only'>Loading...</span></div></div>");
+        $.get('${SITE_URL}/admin/enquiries/' + $enquiryid + '/followups/table', (data) => {
+            $dialog.find('#followup-content').html(data);
+            $dialog.modal();
+        });
+    }
     $('.followup-delete-btn').on('click', function () {
         var $id = $(this).attr('data-id');
         var $enquiryid = $('#enquiryid').val();
         $.get('${SITE_URL}/admin/enquiries/' + $enquiryid + '/followups/delete/' + $id, () => {
-            let $dialog = $('#followup-modal');
-            $dialog.find('#followup-content').html("<div class='text-center'><div class='spinner-border'><span class='sr-only'>Loading...</span></div></div>");
-            $.get('${SITE_URL}/admin/enquiries/' + $enquiryid + '/followups/table', (data) => {
-                $dialog.find('#followup-content').html(data);
-            });
+            followUpLoader($enquiryid);
             loader();
             toastr.info('Deleted Successfully');
         });

@@ -15,12 +15,12 @@
             $content.html(data);
         });
     }
-    
+
     function clear() {
         $('input').val('');
         $('select').prop("selectedIndex", 0);
     }
-    
+
     $(document).ready(() => {
         loader();
         $.getJSON('${SITE_URL}/admin/enquiries/getJson', (data) => {
