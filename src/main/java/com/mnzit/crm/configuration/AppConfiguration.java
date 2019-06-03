@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -27,6 +29,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.mnzit.crm")
 @PropertySource(value = "classpath:application.properties")
+@EnableScheduling
 public class AppConfiguration implements WebMvcConfigurer {
 
     @Value("${spring.mvc.view.prefix}")
@@ -71,5 +74,4 @@ public class AppConfiguration implements WebMvcConfigurer {
     public ModelMapper getModelMapper() {
         return new ModelMapper();
     }
-
 }
