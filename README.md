@@ -1,4 +1,4 @@
-SPRING MVC Based Project
+<h1>SPRING MVC Based CRM Project<h1>
 
 Project features
 1. Enquiries can be added into the system
